@@ -99,6 +99,26 @@ ff.upload('/photos/upload', {photo: uploadFile, status: 'unicorn'})
   .catch(err => console.log(err))
 ```
 
+**Tips**
+
+Use `hooks` for your revese-proxy server
+
+```javascript
+const ff = new Fanfou({
+  consumerKey: '',
+  consuemrSecret: '',
+  oauthToken: '',
+  oauthTokenSecret: '',
+  apiDomain: 'api.example.com',
+  oauthDomain: 'example.com',
+  hooks: {
+    baseString: str => {
+      return str.replace('example.com', 'fanfou.com')
+    }
+  }
+})
+```
+
 ## Related
 
 - [fanfou-sdk-node](https://github.com/LitoMore/fanfou-sdk-node) - Fanfou SDK for Node.js
