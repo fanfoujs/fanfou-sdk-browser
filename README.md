@@ -17,7 +17,7 @@ $ npm i fanfou-sdk-browser
 ## Usage
 
 ```javascript
-const Fanfou = require('fanfou-sdk-browser')
+import Fanfou from 'fanfou-sdk-browser'
 ```
 
 **OAuth**
