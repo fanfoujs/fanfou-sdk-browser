@@ -101,7 +101,7 @@ ff.upload('/photos/upload', {photo: uploadFile, status: 'unicorn'})
 
 **Tips**
 
-Use `hooks` for your revese-proxy server
+Use `hooks` for your reverse-proxy server
 
 ```javascript
 const ff = new Fanfou({
