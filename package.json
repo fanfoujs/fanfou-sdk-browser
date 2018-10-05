@@ -1,0 +1,42 @@
+{
+  "name": "fanfou-sdk-browser",
+  "version": "0.0.0",
+  "description": "Fanfou SDK for browser",
+  "main": "src/fanfou.js",
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LitoMore/fanfou-sdk-browser.git"
+  },
+  "author": "LitoMore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LitoMore/fanfou-sdk-browser/issues"
+  },
+  "homepage": "https://github.com/LitoMore/fanfou-sdk-browser#readme",
+  "devDependencies": {
+    "xo": "^0.23.0"
+  },
+  "dependencies": {
+    "he": "^1.2.0",
+    "ky": "^0.4.0",
+    "oauth-1.0a": "^2.2.4",
+    "query-string": "^6.2.0"
+  },
+  "xo": {
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "rules": {
+      "camelcase": [
+        "error",
+        {
+          "properties": "never"
+        }
+      ]
+    }
+  }
+}
