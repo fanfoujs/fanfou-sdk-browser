@@ -106,7 +106,7 @@ Use `hooks` for your revese-proxy server
 ```javascript
 const ff = new Fanfou({
   consumerKey: '',
-  consuemrSecret: '',
+  consumerSecret: '',
   oauthToken: '',
   oauthTokenSecret: '',
   apiDomain: 'api.example.com',
