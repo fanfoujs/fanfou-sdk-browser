@@ -4,7 +4,8 @@
   "description": "Fanfou SDK for browser",
   "main": "src/fanfou.js",
   "scripts": {
-    "test": "xo"
+    "test": "xo",
+    "build": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,14 @@
   },
   "homepage": "https://github.com/LitoMore/fanfou-sdk-browser#readme",
   "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
     "xo": "^0.23.0"
   },
+  "files": [
+    "src/*"
+  ],
   "dependencies": {
     "he": "^1.2.0",
     "ky": "^0.4.0",
