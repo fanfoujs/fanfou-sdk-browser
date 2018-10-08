@@ -123,7 +123,7 @@ const ff = new Fanfou({
 
 - [fanfou-sdk-node](https://github.com/LitoMore/fanfou-sdk-node) - Fanfou SDK for Node.js
 - [fanfou-sdk-weapp](https://github.com/LitoMore/fanfou-sdk-weapp) - Fanfou SDK for WeApp
-- [ky](https://github.com/sindreshorhus/ky) - Tiny and elegant HTTP client based on the browser Fetch API
+- [ky](https://github.com/sindresorhus/ky) - Tiny and elegant HTTP client based on the browser Fetch API
 
 ## License
 
