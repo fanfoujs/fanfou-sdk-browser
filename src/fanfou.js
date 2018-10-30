@@ -88,7 +88,7 @@ export default class Fanfou {
 
 	async get(uri, params) {
 		const query = queryString.stringify(params);
-		const url = `${this.apiEndPoint}${uri}.json?${query}`;
+		const url = `${this.apiEndPoint}${uri}.json${query ? `?${query}` : ''}`;
 		const token = {key: this.oauthToken, secret: this.oauthTokenSecret};
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'GET'}, token));
 		const response = await ky.get(url, {
