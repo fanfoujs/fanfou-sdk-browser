@@ -140,7 +140,6 @@ export default class Fanfou {
 			hooks: {
 				beforeRequest: [opt => {
 					opt.headers.append('Authorization', Authorization);
-					opt.headers.append('Content-Type', 'multipart/form-data');
 				}]
 			},
 			body: formData
