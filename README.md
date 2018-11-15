@@ -67,7 +67,7 @@ ff.xauth()
 - `oauthTokenSecret`: The OAuth token secret
 - `username`: The Fanfou username
 - `password`: The Fanfou password
-- `https`: Use HTTPS connection, default is `false`
+- `protocol`: Set the protocol, default is `''`
 - `apiDomain`: Set the API domain, default is `api.fanfou.com`
 - `oauthDomain`: Set the OAuth domain, default is `fanfou.com`
 - `hooks`: Hooks allow modifications with OAuth
