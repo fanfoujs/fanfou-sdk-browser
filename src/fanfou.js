@@ -19,7 +19,7 @@ export default class Fanfou {
 			password = '',
 			apiDomain = 'api.fanfou.com',
 			oauthDomain = 'fanfou.com',
-			https = false,
+			protocol = '',
 			hooks = {}
 		} = opt;
 
@@ -31,7 +31,7 @@ export default class Fanfou {
 		this.password = password;
 		this.apiDomain = apiDomain;
 		this.oauthDomain = oauthDomain;
-		this.https = https;
+		this.protocol = protocol;
 		this.hooks = hooks;
 
 		this.oauthInit();
@@ -54,8 +54,8 @@ export default class Fanfou {
 	}
 
 	apiInit() {
-		this.apiEndPoint = `${this.https ? 'https' : 'http'}://${this.apiDomain}`;
-		this.oauthEndPoint = `${this.https ? 'https' : 'http'}://${this.oauthDomain}`;
+		this.apiEndPoint = `${this.protocol}//${this.apiDomain}`;
+		this.oauthEndPoint = `${this.protocol}//${this.oauthDomain}`;
 	}
 
 	async xauth() {
