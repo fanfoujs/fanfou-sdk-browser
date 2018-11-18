@@ -1,8 +1,8 @@
 'use strict';
 
-import crypto from 'crypto';
 import ky from 'ky';
 import oauth from 'oauth-1.0a';
+import hmacsha1 from 'hmacsha1';
 import queryString from 'query-string';
 import User from './user';
 import Status from './status';
@@ -48,7 +48,7 @@ export default class Fanfou {
 				if (baseStringHook) {
 					baseString = baseStringHook(baseString);
 				}
-				return crypto.createHmac('sha1', key).update(baseString).digest('base64');
+				return hmacsha1(key, baseString);
 			}
 		});
 	}
