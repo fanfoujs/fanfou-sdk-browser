@@ -121,6 +121,7 @@ const ff = new Fanfou({
 
 ## Related
 
+- [x-fan](https://github.com/LitoMore/x-fan) - A Fanfou client with front-end alone
 - [fanfou-sdk-node](https://github.com/LitoMore/fanfou-sdk-node) - Fanfou SDK for Node.js
 - [fanfou-sdk-weapp](https://github.com/LitoMore/fanfou-sdk-weapp) - Fanfou SDK for WeApp
 - [ky](https://github.com/sindresorhus/ky) - Tiny and elegant HTTP client based on the browser Fetch API
