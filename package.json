@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/LitoMore/fanfou-sdk-browser#readme",
   "devDependencies": {
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14",
     "xo": "^0.23.0"
   },
   "files": [
