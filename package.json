@@ -21,7 +21,7 @@
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
-    "xo": "^0.23.0"
+    "xo": "^0.24.0"
   },
   "files": [
     "src/*"
