@@ -48,6 +48,7 @@ export default class Fanfou {
 				if (baseStringHook) {
 					baseString = baseStringHook(baseString);
 				}
+
 				return hmacsha1(key, baseString);
 			}
 		});
@@ -103,6 +104,7 @@ export default class Fanfou {
 		if (body.error) {
 			return body;
 		}
+
 		const result = Fanfou._parseData(body, Fanfou._uriType(uri));
 		return result;
 	}
@@ -124,6 +126,7 @@ export default class Fanfou {
 		if (body.error) {
 			return body;
 		}
+
 		const result = Fanfou._parseData(body, Fanfou._uriType(uri));
 		return result;
 	}
@@ -148,6 +151,7 @@ export default class Fanfou {
 		if (body.error) {
 			return body;
 		}
+
 		const result = Fanfou._parseData(body, Fanfou._uriType(uri));
 		return result;
 	}
@@ -225,6 +229,7 @@ export default class Fanfou {
 				}
 			}
 		}
+
 		return arr;
 	}
 

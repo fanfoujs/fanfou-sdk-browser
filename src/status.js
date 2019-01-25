@@ -21,19 +21,24 @@ export default class Status {
 		if (status.repost_status_id) {
 			this.repost_status_id = status.repost_status_id;
 		}
+
 		if (status.repost_user_id) {
 			this.repost_user_id = status.repost_user_id;
 		}
+
 		if (status.repost_screen_name) {
 			this.repost_screen_name = status.repost_screen_name;
 		}
+
 		if (status.repost_status) {
 			this.repost_status = new Status(status.repost_status);
 		}
+
 		this.user = new User(status.user);
 		if (status.photo) {
 			this.photo = new Photo(status.photo);
 		}
+
 		this.type = this._getType();
 		this.source_url = this._getSourceUrl();
 		this.source_name = this._getSourceName();
@@ -61,12 +66,15 @@ export default class Status {
 		if (this.isReply()) {
 			return 'reply';
 		}
+
 		if (this.isRepost()) {
 			return 'repost';
 		}
+
 		if (this.isOrigin()) {
 			return 'origin';
 		}
+
 		return 'unknown';
 	}
 
@@ -74,6 +82,7 @@ export default class Status {
 		if (this.source.match(/<a href="(.+)" target="_blank">.+<\/a>/)) {
 			return this.source.match(/<a href="(.+)" target="_blank">.+<\/a>/)[1];
 		}
+
 		return '';
 	}
 
@@ -81,6 +90,7 @@ export default class Status {
 		if (this.source.match(/<a href=".+" target="_blank">(.+)<\/a>/)) {
 			return this.source.match(/<a href=".+" target="_blank">(.+)<\/a>/)[1];
 		}
+
 		return this.source;
 	}
 
@@ -105,6 +115,7 @@ export default class Status {
 					if (Status._hasBold(text)) {
 						thisTxt.bold_arr = Status._getBoldArr(text);
 					}
+
 					txt.push(thisTxt);
 				}
 
@@ -122,6 +133,7 @@ export default class Status {
 					if (Status._hasBold(text)) {
 						thisTxt.bold_arr = Status._getBoldArr(text);
 					}
+
 					txt.push(thisTxt);
 				}
 
@@ -139,6 +151,7 @@ export default class Status {
 					if (Status._hasBold(text)) {
 						thisTxt.bold_arr = Status._getBoldArr(text);
 					}
+
 					txt.push(thisTxt);
 				}
 
@@ -155,8 +168,10 @@ export default class Status {
 					if (Status._hasBold(text)) {
 						thisTxt.bold_arr = Status._getBoldArr(text);
 					}
+
 					txt.push(thisTxt);
 				}
+
 				theText = theText.substr(index + item.length);
 			});
 			if (theText.length > 0) {
@@ -170,10 +185,13 @@ export default class Status {
 				if (Status._hasBold(text)) {
 					thisTxt.bold_arr = Status._getBoldArr(text);
 				}
+
 				txt.push(thisTxt);
 			}
+
 			return txt;
 		}
+
 		const text = theText;
 		const originText = he.decode(Status._removeBoldTag(theText));
 		const thisTxt = {
@@ -184,6 +202,7 @@ export default class Status {
 		if (Status._hasBold(text)) {
 			thisTxt.bold_arr = Status._getBoldArr(text);
 		}
+
 		return [thisTxt];
 	}
 
@@ -214,6 +233,7 @@ export default class Status {
 						bold: false
 					});
 				}
+
 				const [, t] = item.match(/<b>([\s\S\n]*?)<\/b>/);
 				textArr.push({
 					text: he.decode(t),
@@ -227,8 +247,10 @@ export default class Status {
 					bold: false
 				});
 			}
+
 			return textArr;
 		}
+
 		return [{
 			text: he.decode(text),
 			bold: false
