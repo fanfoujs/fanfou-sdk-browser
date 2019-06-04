@@ -29,40 +29,34 @@ import Fanfou from 'fanfou-sdk-browser'
 **OAuth**
 
 ```javascript
-const ff = new Fanfou({
-  consumerKey: '',
-  consumerSecret: '',
-  oauthToken: '',
-  oauthTokenSecret: ''
-})
+(async () => {
+  const ff = new Fanfou({
+    consumerKey: '',
+    consumerSecret: '',
+    oauthToken: '',
+    oauthTokenSecret: ''
+  })
 
-ff.get('/statuses/home_timeline', {format: 'html'})
-  .then(res => console.log(res))
-  .catch(res => console.log(err))
+  const timeline = await ff.get('/statuses/home_timeline', {format: 'html'})
+})();
 ```
 
 **XAuth**
 
 ```javascript
-const ff = new Fanfou({
-  consumerKey: '',
-  consumerSecret: '',
-  username: '',
-  password: ''
-})
+(async () => {
+  const ff = new Fanfou({
+    consumerKey: '',
+    consumerSecret: '',
+    username: '',
+    password: ''
+  });
 
-ff.xauth()
-  .then(res => {
-    console.log(res)
-    ff.get('/statuses/public_timeline', {count: 10})
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
+  await ff.xauth();
 
-    ff.get('/statuses/update', {status: 'Hi Fanfou'})
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-  })
-  .catch(err => console.log(err))
+  const publimeTimeline = await ff.get('/statuses/public_timeline', {count: 10})
+  const status = await ff.get('/statuses/update', {status: 'Hi Fanfou'})
+})();
 ```
 
 **Options**
@@ -83,6 +77,8 @@ ff.xauth()
 ## API
 
 ```javascript
+ff.getRequestToken()
+ff.getAccessToken(token)
 ff.xauth()
 ff.get(uri, params)
 ff.post(uri, params)
@@ -92,17 +88,22 @@ ff.upload(uri, params)
 **Examples**
 
 ```javascript
-ff.get('/statuses/home_timeline', {})
-  .then(res => console.log(res))
-  .catch(err => console.log(err))
+(async () => {
+  // Get request token
+  const {oauthToken, oauthTokenSecret} = await ff.getRequestToken();
 
-ff.post('/statuses/update', {status: 'post test'})
-  .then(res => console.log(res))
-  .catch(err => console.log(err))
+  // Get access token
+  const {oauthToken, oauthTokenSecret}  = await ff.getAccessToken({oauthToken: '', oauthTokenSecret: ''});
 
-ff.upload('/photos/upload', {photo: uploadFile, status: 'unicorn'})
-  .then(res => console.log(res))
-  .catch(err => console.log(err))
+  // Get timeline
+  const timeline = await ff.get('/statuses/home_timeline', {});
+
+  // Post status
+  const status = await ff.post('/statuses/update', {status: 'post test'});
+
+  // Upload photo
+  const result = await ff.upload('/photos/upload', {photo: uploadFile, status: 'unicorn'});
+})();
 ```
 
 **Tips**

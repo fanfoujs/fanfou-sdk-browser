@@ -59,6 +59,48 @@ export default class Fanfou {
 		this.oauthEndPoint = `${this.protocol}//${this.oauthDomain}`;
 	}
 
+	async getRequestToken() {
+		const url = `${this.oauthEndPoint}/oauth/request_token`;
+		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'GET'}));
+		const response = await ky.get(url, {
+			hooks: {
+				beforeRequest: [opt => {
+					opt.headers.append('Authorization', Authorization);
+				}]
+			}
+		});
+		const body = await response.text();
+		const result = queryString.parse(body);
+		const {
+			oauth_token: oauthToken,
+			oauth_token_secret: oauthTokenSecret
+		} = result;
+		this.oauthToken = oauthToken;
+		this.oauthTokenSecret = oauthTokenSecret;
+		return {oauthToken, oauthTokenSecret};
+	}
+
+	async getAccessToken(token) {
+		const url = `${this.oauthEndPoint}/oauth/access_token`;
+		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'GET'}, {key: token.oauthToken, secret: token.oauthTokenSecret}));
+		const response = await ky.get(url, {
+			hooks: {
+				beforeRequest: [opt => {
+					opt.headers.append('Authorization', Authorization);
+				}]
+			}
+		});
+		const body = await response.text();
+		const result = queryString.parse(body);
+		const {
+			oauth_token: oauthToken,
+			oauth_token_secret: oauthTokenSecret
+		} = result;
+		this.oauthToken = oauthToken;
+		this.oauthTokenSecret = oauthTokenSecret;
+		return {oauthToken, oauthTokenSecret};
+	}
+
 	async xauth() {
 		const url = `${this.oauthEndPoint}/oauth/access_token`;
 		const params = {
