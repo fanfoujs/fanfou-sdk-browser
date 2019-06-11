@@ -90,10 +90,10 @@ ff.upload(uri, params)
 ```javascript
 (async () => {
   // Get request token
-  const {oauthToken, oauthTokenSecret} = await ff.getRequestToken();
+  const token = await ff.getRequestToken();
 
   // Get access token
-  const {oauthToken, oauthTokenSecret}  = await ff.getAccessToken({oauthToken: '', oauthTokenSecret: ''});
+  const token = await ff.getAccessToken({oauthToken: '', oauthTokenSecret: ''});
 
   // Get timeline
   const timeline = await ff.get('/statuses/home_timeline', {});
