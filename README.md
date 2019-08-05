@@ -1,9 +1,9 @@
 # fanfou-sdk-browser
 
-[![](https://badges.greenkeeper.io/LitoMore/fanfou-sdk-browser.svg)](https://greenkeeper.io/)
-[![](https://img.shields.io/travis/LitoMore/fanfou-sdk-browser/master.svg)](https://travis-ci.org/LitoMore/fanfou-sdk-browser)
+[![](https://badges.greenkeeper.io/fanfoujs/fanfou-sdk-browser.svg)](https://greenkeeper.io/)
+[![](https://img.shields.io/travis/fanfoujs/fanfou-sdk-browser/master.svg)](https://travis-ci.org/fanfoujs/fanfou-sdk-browser)
 [![](https://img.shields.io/npm/v/fanfou-sdk-browser.svg)](https://www.npmjs.com/package/fanfou-sdk-browser)
-[![](https://img.shields.io/npm/l/fanfou-sdk-browser.svg)](https://github.com/LitoMore/fanfou-sdk-browser/blob/master/LICENSE)
+[![](https://img.shields.io/npm/l/fanfou-sdk-browser.svg)](https://github.com/fanfoujs/fanfou-sdk-browser/blob/master/LICENSE)
 [![](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
 Fanfou SDK for browser
@@ -135,4 +135,4 @@ const ff = new Fanfou({
 
 ## License
 
-MIT © [LitoMore](https://github.com/LitoMore)
+MIT

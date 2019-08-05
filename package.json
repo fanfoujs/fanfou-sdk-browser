@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LitoMore/fanfou-sdk-browser.git"
+    "url": "git+https://github.com/fanfoujs/fanfou-sdk-browser.git"
   },
   "author": "LitoMore",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LitoMore/fanfou-sdk-browser/issues"
+    "url": "https://github.com/fanfoujs/fanfou-sdk-browser/issues"
   },
-  "homepage": "https://github.com/LitoMore/fanfou-sdk-browser#readme",
+  "homepage": "https://github.com/fanfoujs/fanfou-sdk-browser#readme",
   "devDependencies": {
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.1",
