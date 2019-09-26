@@ -108,8 +108,8 @@ export default class Status {
 
 				// Text
 				if (index > 0) {
-					const text = theText.substr(0, index);
-					const originText = he.decode(Status._removeBoldTag(theText.substr(0, index)));
+					const text = theText.slice(0, index);
+					const originText = he.decode(Status._removeBoldTag(theText.slice(0, index)));
 					const thisTxt = {
 						type: 'text',
 						text: originText,
@@ -123,7 +123,7 @@ export default class Status {
 				}
 
 				// Tag
-				if (item.substr(0, 1) === '#' && tagPattern.test(item)) {
+				if (item.slice(0, 1) === '#' && tagPattern.test(item)) {
 					const matchText = item.match(tagPattern);
 					const text = `#${matchText[2]}#`;
 					const originText = he.decode(Status._removeBoldTag(text));
@@ -141,7 +141,7 @@ export default class Status {
 				}
 
 				// At
-				if (item.substr(0, 1) === '@' && atPattern.test(item)) {
+				if (item.slice(0, 1) === '@' && atPattern.test(item)) {
 					const matchText = item.match(atPattern);
 					const text = `@${matchText[3]}`;
 					const originText = he.decode(Status._removeBoldTag(text));
@@ -159,7 +159,7 @@ export default class Status {
 				}
 
 				// Link
-				if (item.substr(0, 1) === '<' && linkPattern.test(item)) {
+				if (item.slice(0, 1) === '<' && linkPattern.test(item)) {
 					const matchText = item.match(linkPattern);
 					const [, link, text] = matchText;
 					const originText = Status._removeBoldTag(text);
@@ -175,7 +175,7 @@ export default class Status {
 					txt.push(thisTxt);
 				}
 
-				theText = theText.substr(index + item.length);
+				theText = theText.slice(index + item.length);
 			});
 			if (theText.length > 0) {
 				const text = theText;
@@ -230,7 +230,7 @@ export default class Status {
 			match.forEach(item => {
 				const index = theText.indexOf(item);
 				if (index > 0) {
-					const t = theText.substr(0, index);
+					const t = theText.slice(0, index);
 					textArr.push({
 						text: he.decode(t),
 						bold: false
@@ -242,7 +242,7 @@ export default class Status {
 					text: he.decode(t),
 					bold: true
 				});
-				theText = theText.substr(index + item.length);
+				theText = theText.slice(index + item.length);
 			});
 			if (theText.length > 0) {
 				textArr.push({
