@@ -64,8 +64,8 @@ export default class Fanfou {
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'GET'}));
 		const response = await ky.get(url, {
 			hooks: {
-				beforeRequest: [(_, opt) => {
-					opt.headers.append('Authorization', Authorization);
+				beforeRequest: [request => {
+					request.headers.set('Authorization', Authorization);
 				}]
 			}
 		});
@@ -85,8 +85,8 @@ export default class Fanfou {
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'GET'}, {key: token.oauthToken, secret: token.oauthTokenSecret}));
 		const response = await ky.get(url, {
 			hooks: {
-				beforeRequest: [(_, opt) => {
-					opt.headers.append('Authorization', Authorization);
+				beforeRequest: [request => {
+					request.headers.set('Authorization', Authorization);
 				}]
 			}
 		});
@@ -111,9 +111,9 @@ export default class Fanfou {
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'POST'}));
 		const response = await ky.post(url, {
 			hooks: {
-				beforeRequest: [(_, opt) => {
-					opt.headers.append('Authorization', Authorization);
-					opt.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+				beforeRequest: [request => {
+					request.headers.set('Authorization', Authorization);
+					request.headers.set('Content-Type', 'application/x-www-form-urlencoded');
 				}]
 			},
 			body: queryString.stringify(params)
@@ -136,9 +136,9 @@ export default class Fanfou {
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'GET'}, token));
 		const response = await ky.get(url, {
 			hooks: {
-				beforeRequest: [(_, opt) => {
-					opt.headers.append('Authorization', Authorization);
-					opt.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+				beforeRequest: [request => {
+					request.headers.set('Authorization', Authorization);
+					request.headers.set('Content-Type', 'application/x-www-form-urlencoded');
 				}]
 			}
 		});
@@ -157,9 +157,9 @@ export default class Fanfou {
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'POST', data: params}, token));
 		const response = await ky.post(url, {
 			hooks: {
-				beforeRequest: [(_, opt) => {
-					opt.headers.append('Authorization', Authorization);
-					opt.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+				beforeRequest: [request => {
+					request.headers.set('Authorization', Authorization);
+					request.headers.set('Content-Type', 'application/x-www-form-urlencoded');
 				}]
 			},
 			body: queryString.stringify(params)
@@ -183,8 +183,8 @@ export default class Fanfou {
 		});
 		const response = await ky.post(url, {
 			hooks: {
-				beforeRequest: [(_, opt) => {
-					opt.headers.append('Authorization', Authorization);
+				beforeRequest: [request => {
+					request.headers.set('Authorization', Authorization);
 				}]
 			},
 			body: formData
