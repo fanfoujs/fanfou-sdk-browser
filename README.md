@@ -55,7 +55,7 @@ import Fanfou from 'fanfou-sdk-browser'
   await ff.xauth();
 
   const publimeTimeline = await ff.get('/statuses/public_timeline', {count: 10})
-  const status = await ff.get('/statuses/update', {status: 'Hi Fanfou'})
+  const status = await ff.post('/statuses/update', {status: 'Hi Fanfou'})
 })();
 ```
 
@@ -129,8 +129,9 @@ const ff = new Fanfou({
 ## Related
 
 - [x-fan](https://github.com/LitoMore/x-fan) - A Fanfou client with front-end alone
-- [fanfou-sdk-node](https://github.com/LitoMore/fanfou-sdk-node) - Fanfou SDK for Node.js
-- [fanfou-sdk-weapp](https://github.com/LitoMore/fanfou-sdk-weapp) - Fanfou SDK for WeApp
+- [fanfou-sdk-node](https://github.com/fanfoujs/fanfou-sdk-node) - Fanfou SDK for Node.js
+- [fanfou-sdk-weapp](https://github.com/fanfoujs/fanfou-sdk-weapp) - Fanfou SDK for WeApp
+- [fanfou-sdk-python](https://github.com/LitoMore/fanfou-sdk-python) - Fanfou SDK for Python
 - [ky](https://github.com/sindresorhus/ky) - Tiny and elegant HTTP client based on the browser Fetch API
 
 ## License
