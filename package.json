@@ -1,6 +1,6 @@
 {
   "name": "fanfou-sdk-browser",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Fanfou SDK for browser",
   "main": "src/fanfou.js",
   "engines": {
