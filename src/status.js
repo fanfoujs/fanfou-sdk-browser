@@ -79,19 +79,13 @@ export default class Status {
 	}
 
 	_getSourceUrl() {
-		if (this.source.match(/<a href=".*" target="_blank">.+<\/a>/)) {
-			return this.source.match(/<a href=".*" target="_blank">.+<\/a>/)[1];
-		}
-
-		return '';
+		const matched = this.source.match(/<a href="(?<link>.*)" target="_blank">.+<\/a>/);
+		return matched ? matched.groups.link : '';
 	}
 
 	_getSourceName() {
-		if (this.source.match(/<a href=".*" target="_blank">.+<\/a>/)) {
-			return this.source.match(/<a href=".*" target="_blank">.+<\/a>/)[1];
-		}
-
-		return this.source;
+		const matched = this.source.match(/<a href=".*" target="_blank">(?<name>.+)<\/a>/);
+		return matched ? matched.groups.name : this.source;
 	}
 
 	_getTxt() {
