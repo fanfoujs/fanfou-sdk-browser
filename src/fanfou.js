@@ -103,7 +103,7 @@ export default class Fanfou {
 
 	async xauth() {
 		const url = `${this.oauthEndPoint}/oauth/access_token`;
-		const params = {
+		const parameters = {
 			x_auth_mode: 'client_auth',
 			x_auth_password: this.password,
 			x_auth_username: this.username
@@ -116,7 +116,7 @@ export default class Fanfou {
 					request.headers.set('Content-Type', 'application/x-www-form-urlencoded');
 				}]
 			},
-			body: queryString.stringify(params)
+			body: queryString.stringify(parameters)
 		});
 		const body = await response.text();
 		const result = queryString.parse(body);
@@ -129,8 +129,8 @@ export default class Fanfou {
 		return {oauthToken, oauthTokenSecret};
 	}
 
-	async get(uri, params) {
-		const query = queryString.stringify(params);
+	async get(uri, parameters) {
+		const query = queryString.stringify(parameters);
 		const url = `${this.apiEndPoint}${uri}.json${query ? `?${query}` : ''}`;
 		const token = {key: this.oauthToken, secret: this.oauthTokenSecret};
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'GET'}, token));
@@ -151,10 +151,10 @@ export default class Fanfou {
 		return result;
 	}
 
-	async post(uri, params) {
+	async post(uri, parameters) {
 		const url = `${this.apiEndPoint}${uri}.json`;
 		const token = {key: this.oauthToken, secret: this.oauthTokenSecret};
-		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'POST', data: params}, token));
+		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'POST', data: parameters}, token));
 		const response = await ky.post(url, {
 			hooks: {
 				beforeRequest: [request => {
@@ -162,7 +162,7 @@ export default class Fanfou {
 					request.headers.set('Content-Type', 'application/x-www-form-urlencoded');
 				}]
 			},
-			body: queryString.stringify(params)
+			body: queryString.stringify(parameters)
 		});
 		const body = await response.json();
 		if (body.error) {
@@ -173,13 +173,13 @@ export default class Fanfou {
 		return result;
 	}
 
-	async upload(uri, params) {
+	async upload(uri, parameters) {
 		const url = `${this.apiEndPoint}${uri}.json`;
 		const token = {key: this.oauthToken, secret: this.oauthTokenSecret};
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'POST'}, token));
 		const formData = new FormData();
-		Object.keys(params).forEach(key => {
-			formData.append(key, params[key]);
+		Object.keys(parameters).forEach(key => {
+			formData.append(key, parameters[key]);
 		});
 		const response = await ky.post(url, {
 			hooks: {
@@ -255,22 +255,22 @@ export default class Fanfou {
 	}
 
 	static _parseList(data, type) {
-		const arr = [];
+		const array = [];
 		for (const i in data) {
 			if (data[i]) {
 				switch (type) {
 					case 'timeline':
-						arr.push(new Status(data[i]));
+						array.push(new Status(data[i]));
 						break;
 					case 'users':
-						arr.push(new User(data[i]));
+						array.push(new User(data[i]));
 						break;
 					case 'conversation':
-						arr.push(new DirectMessage(data[i]));
+						array.push(new DirectMessage(data[i]));
 						break;
 					case 'conversation-list':
 						data[i].dm = new DirectMessage(data[i].dm);
-						arr.push(data[i]);
+						array.push(data[i]);
 						break;
 					default:
 						break;
@@ -278,7 +278,7 @@ export default class Fanfou {
 			}
 		}
 
-		return arr;
+		return array;
 	}
 
 	static _parseData(data, type) {
