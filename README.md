@@ -130,6 +130,7 @@ const ff = new Fanfou({
 - [fanfou-pro](https://github.com/LitoMore/fanfou-pro) - A Web App Fanfou client
 - [x-fan](https://github.com/LitoMore/x-fan) - A Fanfou client with Framework7
 - [fanfou-sdk-node](https://github.com/fanfoujs/fanfou-sdk-node) - Fanfou SDK for Node.js
+- [fanfou-sdk-deno](https://github.com/LitoMore/fanfou-sdk-deno) - Fanfou SDK for Deno
 - [fanfou-sdk-weapp](https://github.com/fanfoujs/fanfou-sdk-weapp) - Fanfou SDK for WeApp
 - [fanfou-sdk-python](https://github.com/LitoMore/fanfou-sdk-python) - Fanfou SDK for Python
 - [ky](https://github.com/sindresorhus/ky) - Tiny and elegant HTTP client based on the browser Fetch API
