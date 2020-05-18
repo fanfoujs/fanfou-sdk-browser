@@ -63,6 +63,7 @@ export default class Fanfou {
 		const url = `${this.oauthEndPoint}/oauth/request_token`;
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'GET'}));
 		const response = await ky.get(url, {
+			timeout: 60000,
 			hooks: {
 				beforeRequest: [request => {
 					request.headers.set('Authorization', Authorization);
@@ -84,6 +85,7 @@ export default class Fanfou {
 		const url = `${this.oauthEndPoint}/oauth/access_token`;
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'GET'}, {key: token.oauthToken, secret: token.oauthTokenSecret}));
 		const response = await ky.get(url, {
+			timeout: 60000,
 			hooks: {
 				beforeRequest: [request => {
 					request.headers.set('Authorization', Authorization);
@@ -110,6 +112,7 @@ export default class Fanfou {
 		};
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'POST'}));
 		const response = await ky.post(url, {
+			timeout: 60000,
 			hooks: {
 				beforeRequest: [request => {
 					request.headers.set('Authorization', Authorization);
@@ -135,6 +138,7 @@ export default class Fanfou {
 		const token = {key: this.oauthToken, secret: this.oauthTokenSecret};
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'GET'}, token));
 		const response = await ky.get(url, {
+			timeout: 60000,
 			hooks: {
 				beforeRequest: [request => {
 					request.headers.set('Authorization', Authorization);
@@ -156,6 +160,7 @@ export default class Fanfou {
 		const token = {key: this.oauthToken, secret: this.oauthTokenSecret};
 		const {Authorization} = this.o.toHeader(this.o.authorize({url, method: 'POST', data: parameters}, token));
 		const response = await ky.post(url, {
+			timeout: 60000,
 			hooks: {
 				beforeRequest: [request => {
 					request.headers.set('Authorization', Authorization);
@@ -182,6 +187,7 @@ export default class Fanfou {
 			formData.append(key, parameters[key]);
 		});
 		const response = await ky.post(url, {
+			timeout: 60000,
 			hooks: {
 				beforeRequest: [request => {
 					request.headers.set('Authorization', Authorization);
