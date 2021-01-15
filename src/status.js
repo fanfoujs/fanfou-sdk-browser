@@ -1,8 +1,8 @@
 'use strict';
 
 import he from 'he';
-import User from './user';
-import Photo from './photo';
+import User from './user.js';
+import Photo from './photo.js';
 
 export default class Status {
 	constructor(status) {

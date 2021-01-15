@@ -1,6 +1,6 @@
 'use strict';
 
-import User from './user';
+import User from './user.js';
 
 export default class DirectMessage {
 	constructor(dm) {

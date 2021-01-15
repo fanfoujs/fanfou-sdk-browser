@@ -4,9 +4,9 @@ import ky from 'ky';
 import oauth from 'oauth-1.0a';
 import hmacsha1 from 'hmacsha1';
 import queryString from 'query-string';
-import User from './user';
-import Status from './status';
-import DirectMessage from './direct-message';
+import User from './user.js';
+import Status from './status.js';
+import DirectMessage from './direct-message.js';
 
 export default class Fanfou {
 	constructor(opt = {}) {

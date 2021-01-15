@@ -2,7 +2,9 @@
   "name": "fanfou-sdk-browser",
   "version": "0.8.0",
   "description": "Fanfou SDK for browser",
-  "main": "src/fanfou.js",
+  "type": "module",
+  "exports": "./src/fanfou.js",
+  "main": "./src/fanfou.js",
   "engines": {
     "node": ">=12"
   },
@@ -25,7 +27,7 @@
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0",
-    "xo": "^0.28.0"
+    "xo": "^0.37.1"
   },
   "files": [
     "src/*"
