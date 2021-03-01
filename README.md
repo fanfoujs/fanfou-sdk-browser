@@ -128,6 +128,7 @@ const ff = new Fanfou({
 ## Related
 
 - [fanfou-pro](https://github.com/LitoMore/fanfou-pro) - A Web App Fanfou client
+- [fanfou-export](https://github.com/LitoMore/fanfou-export) - Export all your Fanfou statuses
 - [x-fan](https://github.com/LitoMore/x-fan) - A Fanfou client with Framework7
 - [fanfou-sdk-node](https://github.com/fanfoujs/fanfou-sdk-node) - Fanfou SDK for Node.js
 - [fanfou-sdk-deno](https://github.com/LitoMore/fanfou-sdk-deno) - Fanfou SDK for Deno
